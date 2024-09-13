@@ -23,7 +23,8 @@ async def main():
         )
 
 
-    st.title('🍓')
+    st.title('🍓 Strawberry Chat')
+    st.caption(f"Currently using model: `{model}`. You can change the setting on the left 👈 sidebar.")
     conversation_container = st.container()
 
     # App logic
