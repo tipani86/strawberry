@@ -31,7 +31,7 @@ async def main():
 
     if "LOG" not in st.session_state:
         st.session_state.LOG = []
-        st.session_state.cost = 0
+        st.session_state.cost = 5
 
     if st.session_state.cost > 0:
         with st.sidebar:
@@ -41,7 +41,9 @@ async def main():
                 st.info(f"Total cost for this conversation so far: USD **{st.session_state.cost:.2f}**", icon="💲")
             st.caption("**This is a free preview by [Xiaopan.AI](https://xiaopan.ai)**.")
         if st.session_state.cost > 0.5:
-            st.caption("If you find it useful and want to support me, you can scan below QR codes to help buy me a coffee ☕\n\nThank you! 🙏")
+            st.info(f"Total cost for this conversation so far: USD **{st.session_state.cost:.2f}**", icon="💲")
+            st.caption("**This is a free preview by [Xiaopan.AI](https://xiaopan.ai)**.")
+            st.caption("If you find it useful and want to support me, you can scan below QR codes to help buy me a coffee ☕ or visit my portfolio (linked above) to check I can help you with anything.\n\nThank you! 🙏")
             
             # Render payment_images contents in random order
             payment_columns = st.columns(len(payment_images))
