@@ -31,7 +31,7 @@ async def main():
 
     if "LOG" not in st.session_state:
         st.session_state.LOG = []
-        st.session_state.cost = 5
+        st.session_state.cost = 0
 
     if st.session_state.cost > 0:
         with st.sidebar:
