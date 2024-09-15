@@ -20,10 +20,11 @@ async def main():
             st.session_state.LOG = []
             st.rerun()
         model = st.radio(
-            "Model",
+            "**Model**",
             ["o1-mini", "o1-preview"],
             index=0
         )
+        st.markdown("""<small><b>Stats</b><br>Page views <img src="https://www.cutercounter.com/hits.php?id=hvvxqdkqx&nd=5&style=1" border="0" alt="visitor counter"><br>Unique visitors <img src="https://www.cutercounter.com/hits.php?id=hmxqdkpc&nd=5&style=1" border="0" alt="website counter"></small>""", unsafe_allow_html=True)
 
 
     st.title('🍓 Strawberry Chat')
