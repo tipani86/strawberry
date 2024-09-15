@@ -16,6 +16,9 @@ async def main():
     )
 
     with st.sidebar:
+        if st.button("Clear chat history"):
+            st.session_state.LOG = []
+            st.rerun()
         model = st.radio(
             "Model",
             ["o1-mini", "o1-preview"],
@@ -36,17 +39,18 @@ async def main():
     if st.session_state.cost > 0:
         with st.sidebar:
             if st.session_state.cost < 0.01:
-                st.info(f"Total cost for this conversation so far: USD **{st.session_state.cost:.3f}**", icon="💲")
+                cost_str = f"{st.session_state.cost:.3f}"
             else:
-                st.info(f"Total cost for this conversation so far: USD **{st.session_state.cost:.2f}**", icon="💲")
+                cost_str = f"{st.session_state.cost:.2f}"
+            st.info(f"Total cost for this session so far: USD $**{cost_str}**", icon="💲")
             st.caption("**This is a free preview by [Xiaopan.AI](https://xiaopan.ai)**.")
         if st.session_state.cost > 0.5:
-            st.info(f"Total cost for this conversation so far: USD **{st.session_state.cost:.2f}**", icon="💲")
+            st.info(f"Total cost for this session so far: USD $**{cost_str}**", icon="💲")
             st.caption("**This is a free preview by [Xiaopan.AI](https://xiaopan.ai)**.")
             st.caption("If you find it useful and want to support me, you can scan below QR codes to help buy me a coffee ☕ or visit my portfolio (linked above) to check I can help you with anything.\n\nThank you! 🙏")
             
             # Render payment_images contents in random order
-            payment_columns = st.columns(len(payment_images))
+            payment_columns = st.columns(len(payment_images), gap="large", vertical_alignment="center")
             shuffle(payment_images)
             for i, image_path in enumerate(payment_images):
                 with payment_columns[i]:
