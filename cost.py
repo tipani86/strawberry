@@ -11,5 +11,6 @@ cost = {
 
 payment_images = [
     "assets/alipay.jpg",
-    "assets/wechat_pay.jpg"
+    "assets/wechat_pay.jpg",
+    "assets/paypal.jpg"
 ]
